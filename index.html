@@ -1,95 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tabelas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <table>
-        <tr>
-          <th>Restaurantes</th>
-        </tr>
-        <tr>
-          <td>id_restaurante</td>
-        </tr>
-        <tr>
-          <td>nome</td>
-        </tr>
-        <tr>
-            <td>endereço</td>
-        </tr>
-        <tr>
-            <td>pratos</td>
-        </tr>
+  <div class="container">
+    <h1>Modelo de Tabelas</h1>
+    <p class="lead">Cada cartão mostra uma tabela correspondente às entidades</p>
+
+    <div class="grid">
+      <div class="card">
+        <h2>1. Restaurantes</h2>
+        <table>
+          <thead>
+            <tr><th>id_restaurante</th><th>nome</th><th>endereço</th><th>pratos (lista)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Sabores da Praça</td><td>Rua A, 123</td><td class="muted">[1, 2, 5]</td></tr>
+            <tr><td>2</td><td>Boa Mesa</td><td>Avenida B, 45</td><td class="muted">[3,4]</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>2. Clientes</h2>
+        <table>
+          <thead>
+            <tr><th>id_cliente</th><th>nome</th><th>telefone</th><th>endereço</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Mariana Silva</td><td>(44) 99999-0000</td><td>Rua C, 88</td></tr>
+            <tr><td>2</td><td>Bruna Sousa</td><td>(44) 98888-1111</td><td>Av. D, 200</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>3. Pratos</h2>
+        <table>
+          <thead>
+            <tr><th>id_prato</th><th>nome</th><th>preço (R$)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Risoto de cogumelos</td><td>45.00</td></tr>
+            <tr><td>2</td><td>Hambúrguer artesanal</td><td>28.50</td></tr>
+            <tr><td>3</td><td>Salada Caesar</td><td>22.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>4. Pedidos</h2>
+        <table>
+          <thead>
+            <tr><th>id_pedido</th><th>id_cliente</th><th>data do pedido</th><th>status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>100</td><td>1</td><td>2025-09-01 19:12</td><td>entregue</td></tr>
+            <tr><td>101</td><td>2</td><td>2025-09-02 12:05</td><td>em preparo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>5. Itens Pedidos</h2>
+        <table>
+          <thead>
+            <tr><th>id_item</th><th>id_pedido</th><th>id_prato</th><th>quantidade</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>400</td><td>100</td><td>1</td><td>1</td></tr>
+            <tr><td>401</td><td>100</td><td>2</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card der-card">
+      <h2>DER (Relacionamentos)</h2>
+      <div class="der-wrap">
+        <div class="crow">
+          <div class="entity">
+            <h4>Clientes</h4>
+            <ul>
+              <li>id_cliente</li>
+              <li>nome</li>
+              <li>telefone</li>
+              <li>endereço</li>
+            </ul>
+          </div>
+
+          <div class="line-wrapper">
+            <div class="line"></div>
+            <div class="entity">
+              <h4>Pedidos</h4>
+              <ul>
+                <li>id_pedido</li>
+                <li>id_cliente</li>
+                <li>data_do_pedido</li>
+                <li>status</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="crow">
+          <div class="entity">
+            <h4>Restaurantes</h4>
+            <ul>
+              <li>id_restaurante</li>
+              <li>nome</li>
+              <li>endereço</li>
+              <li>pratos</li>
+            </ul>
+          </div>
+
+          <div class="line-wrapper">
+            <div class="line"></div>
+            <div class="entity">
+              <h4>Pratos</h4>
+              <ul>
+                <li>id_prato</li>
+                <li>nome</li>
+                <li>preço</li>
+                <li>id_restaurante</li>
+              </ul>
+            </div>
+
+            <div class="line-wrapper">
+              <div class="line"></div>
+              <div class="entity">
+                <h4>Itens Pedidos</h4>
+                <ul>
+                  <li>id_item</li>
+                  <li>id_pedido</li>
+                  <li>id_prato</li>
+                  <li>quantidade</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         
+      </div>
+    </div>
 
-         <tr>
-        <th>Clientes</th>
-          </tr>
-          <tr>
-            <td>id_cliente</td>
-          </tr>
-          <tr>
-            <td>nome</td>
-          </tr>
-          <tr>
-              <td>endereço</td>
-          </tr>
-          <tr>
-              <td>telefone</td>
-          </tr>
-
-
-          <tr>
-            <th>Prato</th>
-          </tr>
-          <tr>
-            <td>id_prato</td>
-          </tr>
-          <tr>
-            <td>nome</td>
-          </tr>
-          <tr>
-              <td>preço</td>
-          </tr>
-
-
-
-          <tr>
-            <th>Pedidos</th>
-          </tr>
-          <tr>
-            <td>id_pedido</td>
-          </tr>
-          <tr>
-            <td>id_cliente</td>
-          </tr>
-          <tr>
-              <td>data do pedido</td>
-          </tr>
-          <tr>
-              <td>status</td>
-          </tr>
-
-
-          <tr>
-            <th>Itens pedidos</th>
-          </tr>
-          <tr>
-            <td>id_item</td>
-          </tr>
-          <tr>
-            <td>id_pedido</td>
-          </tr>
-          <tr>
-              <td>id_prato</td>
-          </tr>
-          <tr>
-              <td>quantidade</td>
-          </tr>
-
-      </table>
+  </div>
 </body>
 </html>
